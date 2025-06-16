@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+:root {
+  --line-border-fill: linear-gradient(90deg, #6e45e2, #88d3ce);
+  --line-border-empty: #dcdcdc;
+  --circle-bg: #fff;
+  --circle-active: #6e45e2;
+  --dark-bg: #1e1e2f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f6f7fb;
+  font-family: 'Orbitron', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  transition: background 0.4s ease;
+  overflow: hidden;
+}
+
+.dark {
+  background-color: var(--dark-bg);
+  color: #fff;
+}
+
+.container {
+  text-align: center;
+  padding: 20px;
+}
+
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 30px;
+  max-width: 100%;
+  width: 400px;
+}
+
+.progress-container::before {
+  content: '';
+  background-color: var(--line-border-empty);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 100%;
+  z-index: -1;
+}
+
+.progress {
+  background: var(--line-border-fill);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 0%;
+  z-index: -1;
+  transition: width 0.4s ease;
+}
+
+.circle {
+  background-color: var(--circle-bg);
+  color: #999;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid var(--line-border-empty);
+  transition: all .4s ease;
+}
+
+.circle.active {
+  border-color: #6e45e2;
+  color: #6e45e2;
+  font-weight: bold;
+  box-shadow: 0 0 10px #6e45e2;
+}
+
+.btn {
+  background: linear-gradient(90deg, #6e45e2, #88d3ce);
+  color: #fff;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 10px 35px;
+  margin: 5px;
+  font-size: 14px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.progress-text {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.top-bar {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+}
+
+.toggle-theme {
+  background: none;
+  border: 2px solid #6e45e2;
+  color: #6e45e2;
+  border-radius: 50px;
+  padding: 5px 15px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.toggle-theme:hover {
+  background: #6e45e2;
+  color: white;
+}
+
+#confetti-canvas {
+  position: fixed;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+}
+
+@media (max-width: 500px) {
+  .progress-container {
+    width: 90%;
+  }
+
+  .circle {
+    height: 30px;
+    width: 30px;
+    font-size: 14px;
+  }
+
+  .btn {
+    padding: 8px 25px;
+    font-size: 12px;
+  }
+}
+
+.circle {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.circle:hover {
+  transform: scale(1.1);
+}
+
