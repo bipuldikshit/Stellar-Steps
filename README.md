@@ -26,7 +26,7 @@ Stellar Steps is a sleek and dynamic multi-step progress bar with built-in confe
 
 ## 📷 Demo
 
-> 📺 [Live Preview](https://github.com/bipuldikshit/Stellar-Steps.git)
+> 📺 [Live Preview](https://bipuldikshit.github.io/Stellar-Steps/)
 
 ---
 
